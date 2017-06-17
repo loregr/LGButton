@@ -1,0 +1,16 @@
+PODS:
+  - LGButton (1.0.0)
+
+DEPENDENCIES:
+  - LGButton (from `../`)
+
+EXTERNAL SOURCES:
+  LGButton:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LGButton: 794e28819c796c9256d36d14c2fe7a9db10de176
+
+PODFILE CHECKSUM: 448b2d5ebb3f7a98ab2e34cf948f1d44062399e6
+
+COCOAPODS: 1.2.1

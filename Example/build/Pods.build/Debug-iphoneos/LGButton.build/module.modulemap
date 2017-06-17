@@ -1,0 +1,10 @@
+framework module LGButton {
+  umbrella header "LGButton-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module LGButton.Swift {
+    header "LGButton-Swift.h"
+}

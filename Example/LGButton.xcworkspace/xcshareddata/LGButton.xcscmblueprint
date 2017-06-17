@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "12D60E059AAD3279E7D767CD4C75B4E4F500A231",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "12D60E059AAD3279E7D767CD4C75B4E4F500A231" : 9223372036854775807,
+    "5EDC1C5AD949DF91D2C45B5C3B06C3CDD86B8C1D" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "355E0413-1FC2-44D6-A4A5-C71A3F3BB5F5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "12D60E059AAD3279E7D767CD4C75B4E4F500A231" : "LGButton-github\/",
+    "5EDC1C5AD949DF91D2C45B5C3B06C3CDD86B8C1D" : "LGButton-github\/LGButton\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LGButton",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/LGButton.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:loregr\/LGButton.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "12D60E059AAD3279E7D767CD4C75B4E4F500A231"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.com:lorenzo.gr90\/LGButton.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5EDC1C5AD949DF91D2C45B5C3B06C3CDD86B8C1D"
+    }
+  ]
+}

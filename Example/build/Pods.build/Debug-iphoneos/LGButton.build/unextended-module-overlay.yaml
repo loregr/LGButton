@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/Renzo/Projects/iOS_projects/LGButton-github/LGButton/Example/build/Debug-iphoneos/LGButton/LGButton.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/Renzo/Projects/iOS_projects/LGButton-github/LGButton/Example/build/Pods.build/Debug-iphoneos/LGButton.build/unextended-module.modulemap',
+    }]
+  }]
+}

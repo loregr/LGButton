@@ -1,0 +1,6 @@
+framework module Pods_LGButton_Example {
+  umbrella header "Pods-LGButton_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
