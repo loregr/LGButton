@@ -90,6 +90,7 @@ Customise your button by setting the properties from the Interface Builder.
 | Title String      | The title string      | _EMPTY&#95;STRING_ |
 | Title Font Name      | The title font name    | nil |
 | Title Font Size      | The title font size    | 14.0 |
+| Vertical orientation      | If `true` the left icon will be placed on the top and the right icon will be placed on the bottom    | false |
 | Left Icon String      | The name of the left icon (taken from the cheat sheet)    | _EMPTY&#95;STRING_ |
 | Left Icon Font Name      | The name of the left icon font name (taken from the table above)    | _EMPTY&#95;STRING_ |
 | Left Icon Font Size      | The left icon font size    | 14.0 |
