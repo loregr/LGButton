@@ -129,6 +129,12 @@ public class LGButton: UIControl {
         }
     }
     
+    @IBInspectable public var verticalOrientation: Bool = false {
+        didSet {
+            setupView()
+        }
+    }
+    
     @IBInspectable public var leftIconString: String = "" {
         didSet{
             setupView()
@@ -343,6 +349,7 @@ public class LGButton: UIControl {
     fileprivate func setupView(){
         bgContentView.clipsToBounds = true
         layer.masksToBounds = false
+        setIconOrientation()
         setupBackgroundColor()
         setupGradientBackground()
         setupBorderAndCorners()
@@ -354,6 +361,14 @@ public class LGButton: UIControl {
         setupSpacings()
         setupShadow()
         setupLoadingView()
+    }
+    
+    fileprivate func setIconOrientation() {
+        if verticalOrientation {
+            mainStackView.axis = .vertical
+        }else{
+            mainStackView.axis = .horizontal
+        }
     }
     
     fileprivate func setupBackgroundColor() {
