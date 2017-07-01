@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = 'LGButton'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A fully customisable subclass of the native UIControl which allows you to create beautiful buttons without writing any line of code.'
-  s.homepage         = 'https://lorenzogreco.com'
+  s.homepage         = 'https://cocoapods.org/pods/LGButton'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Lorenzo Greco' => 'lorenzo.gr90@gmail.com' }
   s.source           = { :git => 'https://github.com/loregr/LGButton.git', :tag => "#{s.version}" }
