@@ -27,7 +27,7 @@
 		8534994E5EE5808C3D2412B9 /* LGButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LGButton.podspec; path = ../LGButton.podspec; sourceTree = "<group>"; };
 		9106FE46136FEA0E02485C1F /* Pods-LGButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LGButton_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LGButton_Example/Pods-LGButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AAD02D6B9CC428DFC6DD429D /* Pods-LGButton_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LGButton_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LGButton_Tests/Pods-LGButton_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		AC9BCE1E2CCB11A91C76080D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AC9BCE1E2CCB11A91C76080D /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		C36DAAEFF173645766E9157E /* Pods-LGButton_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LGButton_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LGButton_Tests/Pods-LGButton_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C94024E91EEDE8D00028B9E2 /* LGButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LGButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/LGButton-bpahpxniesyyiudpqdubgfomwwez/Build/Products/Debug-iphonesimulator/LGButton/LGButton.framework"; sourceTree = "<group>"; };
 		C94024EA1EEDE8D00028B9E2 /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/LGButton-bpahpxniesyyiudpqdubgfomwwez/Build/Products/Debug-iphonesimulator/SwiftIconFont/SwiftIconFont.framework"; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			children = (
 				8534994E5EE5808C3D2412B9 /* LGButton.podspec */,
 				F414603965E8B52EFAF894EA /* README.md */,
-				AC9BCE1E2CCB11A91C76080D /* LICENSE */,
+				AC9BCE1E2CCB11A91C76080D /* LICENSE.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
