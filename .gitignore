@@ -1,0 +1,8 @@
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+xcuserdata/
