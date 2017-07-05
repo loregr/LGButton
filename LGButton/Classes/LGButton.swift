@@ -392,11 +392,9 @@ public class LGButton: UIControl {
             gradient!.colors = [gradientStartColor!.cgColor, gradientEndColor!.cgColor]
             
             var xAngle:Float = Float(gradientRotation)
-            if (gradientHorizontal)
-            {
+            if (gradientHorizontal) {
                 xAngle = 0.25
             }
-            
             var a:Float = pow(sinf((2*Float(M_PI)*((xAngle+0.75)/2))),2)
             var b:Float = pow(sinf((2*Float(M_PI)*((xAngle+0.0)/2))),2)
             var c:Float = pow(sinf((2*Float(M_PI)*((xAngle+0.25)/2))),2)
