@@ -82,6 +82,7 @@ Customise your button by setting the properties from the Interface Builder.
 | Gradient End Color      | The second color of the gradient background     | nil |
 | Gradient End Color      | The second color of the gradient background     | nil |
 | Gradient Horizontal      | Whether the gradient should be horizontal or not     | false |
+| Gradient Rotation      | Set the gradient rotation angle (degrees from -360 to 360)     | 0 |
 | Corner Radius      | The corner radius     | 0.0 |
 | Fully Rounded Corners      | Apply a corner radius equals to height/2  | false |
 | Border Color      | The border color     | white |

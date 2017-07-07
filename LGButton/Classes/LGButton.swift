@@ -81,6 +81,16 @@ public class LGButton: UIControl {
         }
     }
     
+    @IBInspectable public var gradientRotation: CGFloat = 0 {
+        didSet{
+            if gradient != nil {
+                gradient?.removeFromSuperlayer()
+                gradient = nil
+                setupView()
+            }
+        }
+    }
+    
     @IBInspectable public var cornerRadius: CGFloat = 0.0 {
         didSet{
             setupView()
@@ -380,12 +390,24 @@ public class LGButton: UIControl {
             gradient = CAGradientLayer()
             gradient!.frame.size = frame.size
             gradient!.colors = [gradientStartColor!.cgColor, gradientEndColor!.cgColor]
-            gradient!.startPoint = CGPoint(x: 0, y: 0)
-            if (gradientHorizontal){
-                gradient!.endPoint = CGPoint(x: 1, y: 0)
-            }else{
-                gradient!.endPoint = CGPoint(x: 0, y: 1)
+            
+            var rotation:CGFloat!
+            if gradientRotation >= 0 {
+                rotation = min(gradientRotation, CGFloat(360.0))
+            } else {
+                rotation = max(gradientRotation, CGFloat(-360.0))
             }
+            var xAngle:Float = Float(rotation/360)
+            if (gradientHorizontal) {
+                xAngle = 0.25
+            }
+            let a = pow(sinf((2*Float(Double.pi)*((xAngle+0.75)/2))),2)
+            let b = pow(sinf((2*Float(Double.pi)*((xAngle+0.0)/2))),2)
+            let c = pow(sinf((2*Float(Double.pi)*((xAngle+0.25)/2))),2)
+            let d = pow(sinf((2*Float(Double.pi)*((xAngle+0.5)/2))),2)
+            gradient!.startPoint = CGPoint(x: CGFloat(a), y: CGFloat(b))
+            gradient!.endPoint = CGPoint(x: CGFloat(c), y: CGFloat(d))
+        
             bgContentView.layer.addSublayer(gradient!)
         }
     }
