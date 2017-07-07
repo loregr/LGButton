@@ -6,3 +6,8 @@ DerivedData/
 *.pbxuser
 !default.pbxuser
 xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
