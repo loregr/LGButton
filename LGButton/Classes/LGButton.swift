@@ -51,7 +51,7 @@ public class LGButton: UIControl {
     // MARK: - Inspectable properties
     // MARK:
     
-    @IBInspectable public var bgColor: UIColor = UIColor.gray {
+    @IBInspectable public var bgColor: UIColor = UIColor.clear {
         didSet{
             setupView()
         }
