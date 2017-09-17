@@ -8,34 +8,22 @@
 import UIKit
 import QuartzCore
 
-let untouchedAlpha : CGFloat = 1.0
-let touchedAlpha :CGFloat = 0.7
-let touchDisableRadius : CGFloat = 100.0
 
 @IBDesignable
 public class LGButton: UIControl {
     
+    enum TouchAlphaValues : CGFloat
+    {
+        case touched = 0.7
+        case untouched = 1.0
+    }
+
+    let touchDisableRadius : CGFloat = 100.0
+
     let availableFontIcons = ["fa", "io", "oc", "ic", "ma", "ti", "mi"]
     
     var gradient : CAGradientLayer?
-    var touchAlpha : CGFloat = untouchedAlpha
-    {
-        didSet {
-            updateTouchAlpha()
-        }
-    }
     
-    var pressed : Bool = false
-    {
-        didSet {
-            if !showTouchFeedback
-            {
-                return
-            }
-
-            touchAlpha = (pressed) ? touchedAlpha : untouchedAlpha
-        }
-    }
     
     fileprivate var rootView : UIView!
     @IBOutlet fileprivate weak var titleLbl: UILabel!
@@ -611,50 +599,56 @@ public class LGButton: UIControl {
     
     // MARK: - Touches
     // MARK:
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
+    var touchAlpha : TouchAlphaValues = .untouched {
+        didSet {
+            updateTouchAlpha()
+        }
+    }
+    
+    var pressed : Bool = false {
+        didSet {
+            if !showTouchFeedback {
+                return
+            }
+            
+            touchAlpha = (pressed) ? .touched : .untouched
+        }
+    }
+
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         pressed = true
     }
     
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
         let shouldSendActions = pressed
         pressed = false
-        if shouldSendActions
-        {
+        if shouldSendActions{
             sendActions(for: .touchUpInside)
         }
     }
     
-    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        if let touchLoc = touches.first?.location(in: self)
-        {
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
+        if let touchLoc = touches.first?.location(in: self){
             if (touchLoc.x < -touchDisableRadius ||
                 touchLoc.y < -touchDisableRadius ||
                 touchLoc.x > self.bounds.size.width + touchDisableRadius ||
-                touchLoc.y > self.bounds.size.height + touchDisableRadius)
-            {
+                touchLoc.y > self.bounds.size.height + touchDisableRadius){
                 pressed = false
             }
-            else if self.touchAlpha == 1.0
-            {
+            else if self.touchAlpha == .untouched {
                 pressed = true
             }
         }
     }
     
-    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
+    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         pressed = false
     }
     
-    func updateTouchAlpha()
-    {
-        if self.alpha != self.touchAlpha
-        {
+    func updateTouchAlpha() {
+        if self.alpha != self.touchAlpha.rawValue {
             UIView.animate(withDuration: 0.3) {
-                self.alpha = self.touchAlpha
+                self.alpha = self.touchAlpha.rawValue
             }
         }
     }
