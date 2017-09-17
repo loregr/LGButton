@@ -12,8 +12,7 @@ import QuartzCore
 @IBDesignable
 public class LGButton: UIControl {
     
-    enum TouchAlphaValues : CGFloat
-    {
+    enum TouchAlphaValues : CGFloat {
         case touched = 0.7
         case untouched = 1.0
     }
