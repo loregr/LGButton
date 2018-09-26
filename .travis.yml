@@ -6,7 +6,7 @@ before_script:
     - pod install
 
 script:
-    - xcodebuild clean build -sdk iphonesimulator11.0 -workspace LGButton.xcworkspace -scheme LGButton-Example CODE_SIGNING_REQUIRED=NO
+    - xcodebuild clean build -sdk iphonesimulator12.0 -workspace LGButton.xcworkspace -scheme LGButton-Example CODE_SIGNING_REQUIRED=NO
 
 branches:
   only:
