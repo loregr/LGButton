@@ -65,7 +65,7 @@ public extension UIImage
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
         
-		drawText!.draw(in: CGRect(x:0, y:0, width:imageSize.width, height:imageSize.height), withAttributes: [NSAttributedStringKey.font : UIFont.icon(from: font, ofSize: size), NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: iconColor])
+        drawText!.draw(in: CGRect(x:0, y:0, width:imageSize.width, height:imageSize.height), withAttributes: [NSAttributedString.Key.font : UIFont.icon(from: font, ofSize: size), NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.foregroundColor: iconColor])
         
 		let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -204,7 +204,7 @@ func getAttributedString(_ text: NSString, ofSize size: CGFloat) -> NSMutableAtt
         if let _ = fontArr[fontCode] {
             attributedString.replaceCharacters(in: substringRange, with: String.getIcon(from: fontType, code: fontCode)!)
             let newRange = NSRange(location: substringRange.location, length: 1)
-            attributedString.addAttribute(NSAttributedStringKey.font, value: UIFont.icon(from: fontType, ofSize: size), range: newRange)
+            attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.icon(from: fontType, ofSize: size), range: newRange)
         }
     }
     
@@ -225,7 +225,7 @@ func GetIconIndexWithSelectedIcon(_ icon: String) -> String {
         var fontCode: String = splitArr[1]
         
         if fontCode.lowercased().range(of: "_") != nil {
-            fontCode = (fontCode as NSString!).replacingOccurrences(of: "_", with: "-")
+            fontCode = (fontCode as NSString).replacingOccurrences(of: "_", with: "-")
         }
         iconIndex = fontCode
     }
