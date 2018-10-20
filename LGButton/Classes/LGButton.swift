@@ -19,7 +19,13 @@ public class LGButton: UIControl {
 
     let touchDisableRadius : CGFloat = 100.0
 
-    let availableFontIcons = ["fa", "io", "oc", "ic", "ma", "ti", "mi"]
+    private var availableFontIcons: [String: IconFont] = ["fa": Fonts.FontAwesome,
+                                                          "io": Fonts.Ionicon,
+                                                          "oc": Fonts.Octicon,
+                                                          "ic": Fonts.Ionicon,
+                                                          "ma": Fonts.MaterialIcon,
+                                                          "ti": Fonts.Themify,
+                                                          "mi": Fonts.MapIcon]
     
     var gradient : CAGradientLayer?
     
@@ -338,12 +344,18 @@ public class LGButton: UIControl {
     // MARK:
     override init(frame: CGRect) {
         super.init(frame: frame)
+        for (key, value) in self.availableFontIcons {
+            SwiftIconFont.registFont(from: value, name: key)
+        }
         xibSetup()
         setupView()
     }
     
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
+        for (key, value) in self.availableFontIcons {
+            SwiftIconFont.registFont(from: value, name: key)
+        }
         xibSetup()
         setupView()
     }
@@ -360,6 +372,10 @@ public class LGButton: UIControl {
     override public var intrinsicContentSize: CGSize {
         return CGSize(width: 10, height: 10)
     }
+    
+//    public func registIconFont(from iconFont: IconFont) {
+//        self.availableFontIcons[iconFont.fontName] = iconFont
+//    }
     
     // MARK: - Internal functions
     // MARK:
@@ -468,7 +484,7 @@ public class LGButton: UIControl {
                    heightConstraint: leftImageHeightConstraint,
                    widthValue: leftImageWidth,
                    heightValue: leftImageHeight)
-        leftIcon.isHidden =  (leftImageSrc != nil || !availableFontIcons.contains(leftIconFontName))
+        leftIcon.isHidden =  (leftImageSrc != nil || !(SwiftIconFont.fonts[leftIconFontName] != nil))
     }
     
     fileprivate func setupRightImage(){
@@ -480,7 +496,7 @@ public class LGButton: UIControl {
                    heightConstraint: rightImageHeightConstraint,
                    widthValue: rightImageWidth,
                    heightValue: rightImageHeight)
-        rightIcon.isHidden =  (rightImageSrc != nil || !availableFontIcons.contains(rightIconFontName))
+        rightIcon.isHidden =  (rightImageSrc != nil || !(SwiftIconFont.fonts[rightIconFontName] != nil))
     }
     
     fileprivate func setupSpacings(){
@@ -513,41 +529,13 @@ public class LGButton: UIControl {
     }
     
     fileprivate func setupIcon(icon:UILabel, fontName:String, iconName:String, fontSize:CGFloat, color:UIColor){
-        icon.isHidden = !availableFontIcons.contains(fontName)
-        if  !icon.isHidden {
+        if let iconFont = SwiftIconFont.fonts[fontName] {
+            icon.isHidden = false
             icon.textColor = color
-            switch fontName {
-            case "fa":
-                icon.font = UIFont.icon(from: .FontAwesome, ofSize: fontSize)
-                icon.text = String.fontAwesomeIcon(iconName)
-                break;
-            case "io":
-                icon.font = UIFont.icon(from: .Ionicon, ofSize: fontSize)
-                icon.text = String.fontIonIcon(iconName)
-                break;
-            case "oc":
-                icon.font = UIFont.icon(from: .Octicon, ofSize: fontSize)
-                icon.text = String.fontOcticon(iconName)
-                break;
-            case "ic":
-                icon.font = UIFont.icon(from: .Iconic, ofSize: fontSize)
-                icon.text = String.fontIconicIcon(iconName)
-                break;
-            case "ma":
-                icon.font = UIFont.icon(from: .MaterialIcon, ofSize: fontSize)
-                icon.text = String.fontMaterialIcon(iconName.replacingOccurrences(of: "-", with: "."))
-                break;
-            case "ti":
-                icon.font = UIFont.icon(from: .Themify, ofSize: fontSize)
-                icon.text = String.fontThemifyIcon(iconName.replacingOccurrences(of: "-", with: "."))
-                break;
-            case "mi":
-                icon.font = UIFont.icon(from: .MapIcon, ofSize: fontSize)
-                icon.text = String.fontMapIcon(iconName.replacingOccurrences(of: "-", with: "."))
-                break;
-            default:
-                break;
-            }
+            icon.font = UIFont.icon(from: iconFont, ofSize: fontSize)
+            icon.text = String.getIcon(from: iconFont, code: iconName.replacingOccurrences(of: "-", with: "."))
+        }else{
+            icon.isHidden = true
         }
         setupBorderAndCorners()
     }
@@ -581,7 +569,7 @@ public class LGButton: UIControl {
     fileprivate func xibSetup() {
         rootView = loadViewFromNib()
         rootView.frame = bounds
-        rootView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
+        rootView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(rootView)
         leadingLoadingConstraint.isActive = false
         trailingLoadingConstraint.isActive = false
