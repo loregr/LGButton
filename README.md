@@ -72,6 +72,36 @@ Customise your button by setting the properties from the Interface Builder.
 
 ![properties_1](media/properties_1.jpg) ![properties_2](media/properties_2.jpg)
 
+### regist your iconFont
+```swift
+// custom iconFont
+import LGButton
+
+public enum MyIconFonts: IconFont {
+    case iconFont
+    public var fontName: String {
+        switch self {
+        case .iconFont:
+            return "iconfont"// the ttf name
+        }
+    }
+
+    public var icons: [String: String] {
+        switch self {
+        case .iconFont:
+            return ["icon_star": "\u{e620}"]
+        }
+    }
+}
+
+// regist
+SwiftIconFont.registFont(from: MyIconFonts.iconFont, name: MyIconFonts.iconFont.fontName)
+
+// useage
+btn.leftIconFontName = MyIconFonts.iconFont.fontName
+btn.leftIconString = "icon_star"
+```
+
 ### Supported Attributes
 
 | Attribute        | Description      | Default value  |
