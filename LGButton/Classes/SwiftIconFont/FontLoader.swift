@@ -15,13 +15,10 @@ class FontLoader: NSObject {
         
         let bundle = Bundle(for: FontLoader.self)
         var fontURL = URL(string: "")
-        for filePath : String in bundle.paths(forResourcesOfType: "ttf", inDirectory: nil) {
-            let filename = NSURL(fileURLWithPath: filePath).lastPathComponent!
-            if filename.lowercased().range(of: fontName.lowercased()) != nil {
-                fontURL = NSURL(fileURLWithPath: filePath) as URL
-            }
-        }
         
+        if fontURL == getFontUrl(fontName, bundle: bundle) {
+            fontURL = getFontUrl(fontName, bundle: Bundle.main)
+        }
         do
         {
             let data = try Data(contentsOf: fontURL!)
@@ -35,11 +32,21 @@ class FontLoader: NSObject {
                 let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
                 NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
             }
-            
         } catch {
             
         }
-        
-        
+    }
+    
+    class func getFontUrl(_ fontName: String, bundle: Bundle) -> URL? {
+        var fontURL = URL(string: "")
+        for filePath : String in bundle.paths(forResourcesOfType: "ttf", inDirectory: nil) {
+            let filename = NSURL(fileURLWithPath: filePath).lastPathComponent!
+            if filename.lowercased().range(of: fontName.lowercased()) != nil {
+                fontURL = NSURL(fileURLWithPath: filePath) as URL
+            }
+        }
+        return fontURL
     }
 }
+
+

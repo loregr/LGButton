@@ -124,7 +124,6 @@ func replace(withText string: NSString) -> NSString {
 }
 
 
-
 func getAttributedString(_ text: NSString, ofSize size: CGFloat) -> NSMutableAttributedString {
     let attributedString = NSMutableAttributedString(string: text as String)
     
