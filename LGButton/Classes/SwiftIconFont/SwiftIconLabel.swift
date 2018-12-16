@@ -16,7 +16,7 @@ class SwiftIconLabel: UILabel {
             self.parseIcon()
         }
     }
-    
+
     override func awakeFromNib() {
         self.parseIcon()
     }

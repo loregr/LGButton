@@ -10,11 +10,11 @@ import UIKit
 
 public class SwiftIconFont {
     private (set) static var fonts: [String: IconFont] = [:]
-    
+
     private init() {
-        
+
     }
-    
+
     public static func registFont(from font: IconFont, name: String) {
         self.fonts[name] = font
     }
@@ -33,7 +33,7 @@ public enum Fonts: IconFont {
     case Themify// = "themify"
     case MapIcon// = "map-icons"
     case MaterialIcon// = "MaterialIcons-Regular"
-    
+
     public var fontName: String {
         switch self {
         case .FontAwesome:
@@ -52,8 +52,8 @@ public enum Fonts: IconFont {
             return "Material Icons"
         }
     }
-    
-    public var icons: [String : String] {
+
+    public var icons: [String: String] {
         switch self {
         case .FontAwesome:
             return fontAwesomeIconArr//"FontAwesome"
@@ -72,11 +72,10 @@ public enum Fonts: IconFont {
         }
     }
 }
-public extension UIFont{
+public extension UIFont {
     static func icon(from font: IconFont, ofSize size: CGFloat) -> UIFont {
         let fontName = font.fontName
-        if (UIFont.fontNames(forFamilyName: font.fontName).count == 0)
-        {
+        if (UIFont.fontNames(forFamilyName: font.fontName).count == 0) {
             /*
             dispatch_once(&token) {
                 FontLoader.loadFont(fontName)
@@ -88,21 +87,19 @@ public extension UIFont{
     }
 }
 
-public extension UIImage
-{
-    public static func icon(from font: IconFont, iconColor: UIColor, code: String, imageSize: CGSize, ofSize size: CGFloat) -> UIImage
-    {
+public extension UIImage {
+    public static func icon(from font: IconFont, iconColor: UIColor, code: String, imageSize: CGSize, ofSize size: CGFloat) -> UIImage {
         let drawText = String.getIcon(from: font, code: code)
-        
+
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
-        
-		drawText!.draw(in: CGRect(x:0, y:0, width:imageSize.width, height:imageSize.height), withAttributes: [NSAttributedStringKey.font : UIFont.icon(from: font, ofSize: size), NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: iconColor])
-        
+
+		drawText!.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height), withAttributes: [NSAttributedStringKey.font: UIFont.icon(from: font, ofSize: size), NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.foregroundColor: iconColor])
+
 		let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return image!
     }
 }
@@ -123,27 +120,25 @@ func replace(withText string: NSString) -> NSString {
     return string
 }
 
-
 func getAttributedString(_ text: NSString, ofSize size: CGFloat) -> NSMutableAttributedString {
     let attributedString = NSMutableAttributedString(string: text as String)
-    
-    for substring in ((text as String).split{$0 == " "}.map(String.init)) {
+
+    for substring in ((text as String).split {$0 == " "}.map(String.init)) {
         var splitArr = ["", ""]
-        splitArr = substring.split{$0 == ":"}.map(String.init)
+        splitArr = substring.split {$0 == ":"}.map(String.init)
         if splitArr.count < 2 {
             continue
         }
-        
-        
+
         let substringRange = text.range(of: substring)
-        
+
         let fontPrefix: String  = splitArr[0].lowercased()
         var fontCode: String = splitArr[1]
-        
+
         if fontCode.lowercased().range(of: "_") != nil {
             fontCode = (fontCode as NSString).replacingOccurrences(of: "_", with: "-")
         }
-        
+
         var fontType: IconFont = Fonts.FontAwesome
         var fontArr: [String: String] = ["": ""]
 
@@ -151,68 +146,67 @@ func getAttributedString(_ text: NSString, ofSize size: CGFloat) -> NSMutableAtt
             fontType = iconFont
             fontArr = iconFont.icons
         }
-        
+
         if let _ = fontArr[fontCode] {
             attributedString.replaceCharacters(in: substringRange, with: String.getIcon(from: fontType, code: fontCode)!)
             let newRange = NSRange(location: substringRange.location, length: 1)
             attributedString.addAttribute(NSAttributedStringKey.font, value: UIFont.icon(from: fontType, ofSize: size), range: newRange)
         }
     }
-    
+
     return attributedString
 }
 
 func GetIconIndexWithSelectedIcon(_ icon: String) -> String {
     let text = icon as NSString
     var iconIndex: String = ""
-    
-    for substring in ((text as String).split{$0 == " "}.map(String.init)) {
+
+    for substring in ((text as String).split {$0 == " "}.map(String.init)) {
         var splitArr = ["", ""]
-        splitArr = substring.split{$0 == ":"}.map(String.init)
-        if splitArr.count == 1{
+        splitArr = substring.split {$0 == ":"}.map(String.init)
+        if splitArr.count == 1 {
             continue
         }
-        
+
         var fontCode: String = splitArr[1]
-        
+
         if fontCode.lowercased().range(of: "_") != nil {
             fontCode = (fontCode as NSString).replacingOccurrences(of: "_", with: "-")
         }
         iconIndex = fontCode
     }
-    
+
     return iconIndex
 }
 
 func GetFontTypeWithSelectedIcon(_ icon: String) -> IconFont {
     let text = icon as NSString
     var fontType: IconFont = Fonts.FontAwesome
-    
-    for substring in ((text as String).split{$0 == " "}.map(String.init)) {
+
+    for substring in ((text as String).split {$0 == " "}.map(String.init)) {
         var splitArr = ["", ""]
-        splitArr = substring.split{$0 == ":"}.map(String.init)
-        
-        if splitArr.count == 1{
+        splitArr = substring.split {$0 == ":"}.map(String.init)
+
+        if splitArr.count == 1 {
             continue
         }
-        
+
         let fontPrefix: String  = splitArr[0].lowercased()
         var fontCode: String = splitArr[1]
-        
+
         if fontCode.lowercased().range(of: "_") != nil {
             fontCode = (fontCode as NSString).replacingOccurrences(of: "_", with: "-")
         }
-        
+
         if let iconFont = SwiftIconFont.fonts[fontPrefix] {
             fontType = iconFont
         }
     }
-    
+
     return fontType
 }
 
 // Extensions
-
 
 public extension UILabel {
     func parseIcon() {

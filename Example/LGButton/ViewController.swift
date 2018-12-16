@@ -11,7 +11,6 @@ import LGButton
 
 class ViewController: UIViewController {
 
-
     @IBAction func action(_ sender: LGButton) {
         sender.isLoading = true
         let deadlineTime = DispatchTime.now() + .seconds(3)
@@ -21,6 +20,4 @@ class ViewController: UIViewController {
         }
     }
 
-
 }
-
