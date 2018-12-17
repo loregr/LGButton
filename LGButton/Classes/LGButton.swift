@@ -16,9 +16,9 @@ public class LGButton: UIControl {
         case touched = 0.7
         case untouched = 1.0
     }
-
+    
     let touchDisableRadius : CGFloat = 100.0
-
+    
     let availableFontIcons = ["fa", "io", "oc", "ic", "ma", "ti", "mi"]
     
     var gradient : CAGradientLayer?
@@ -53,7 +53,7 @@ public class LGButton: UIControl {
     
     public var isLoading = false {
         didSet {
-           showLoadingView()
+            showLoadingView()
         }
     }
     
@@ -357,6 +357,18 @@ public class LGButton: UIControl {
         setupBorderAndCorners()
     }
     
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        xibSetup()
+        setupView()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        xibSetup()
+        setupView()
+    }
+    
     override public var intrinsicContentSize: CGSize {
         return CGSize(width: 10, height: 10)
     }
@@ -416,7 +428,7 @@ public class LGButton: UIControl {
             let d = pow(sinf((2*Float(Double.pi)*((xAngle+0.5)/2))),2)
             gradient!.startPoint = CGPoint(x: CGFloat(a), y: CGFloat(b))
             gradient!.endPoint = CGPoint(x: CGFloat(c), y: CGFloat(d))
-        
+            
             bgContentView.layer.addSublayer(gradient!)
         }
     }
@@ -581,7 +593,7 @@ public class LGButton: UIControl {
     fileprivate func xibSetup() {
         rootView = loadViewFromNib()
         rootView.frame = bounds
-        rootView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
+        rootView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(rootView)
         leadingLoadingConstraint.isActive = false
         trailingLoadingConstraint.isActive = false
@@ -613,7 +625,7 @@ public class LGButton: UIControl {
             touchAlpha = (pressed) ? .touched : .untouched
         }
     }
-
+    
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         pressed = true
     }
