@@ -95,6 +95,7 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Olz-81-yKk" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="9Xz-q8-BM7"/>
                 <constraint firstItem="HQ2-LV-9mO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="MkW-ju-N7C"/>
@@ -113,7 +114,15 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="VEO-YD-W6I" appends="YES" id="7OI-gI-vZd"/>
+            </connections>
             <point key="canvasLocation" x="-26.5" y="-218.5"/>
         </view>
+        <tapGestureRecognizer id="VEO-YD-W6I">
+            <connections>
+                <action selector="tapAction:" destination="-1" id="Nwa-MF-hxK"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
