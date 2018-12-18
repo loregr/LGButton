@@ -622,7 +622,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5dS-2e-2AP"/>
+                                                            <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bA1-Fa-rEK"/>
                                                         </connections>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vertical orientation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjq-YI-5Ah" userLabel="Vertical alignment">
@@ -710,9 +710,6 @@
                                                                 <real key="value" value="23"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QW9-A0-Qkm"/>
-                                                        </connections>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gradient with Rotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sJ-rd-SU2">
                                                         <rect key="frame" x="86.5" y="1341" width="170.5" height="20.5"/>
@@ -803,7 +800,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="leftImageHeight">
                                                                 <real key="value" value="18"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="leftAligned" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="leftAligned" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rightAligned" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
