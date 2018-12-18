@@ -346,6 +346,14 @@ public class LGButton: UIControl {
         }
     }
     
+    // MARK: - Standard Properties
+    // MARK:
+    public var attributedString: NSAttributedString? {
+        didSet {
+            titleLbl.attributedText = attributedString
+        }
+    }
+    
     // MARK: - Overrides
     // MARK:
     override init(frame: CGRect) {
