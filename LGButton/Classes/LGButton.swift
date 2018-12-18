@@ -334,6 +334,18 @@ public class LGButton: UIControl {
         }
     }
     
+    @IBInspectable public var leftAligned: Bool = false {
+        didSet{
+            setupView()
+        }
+    }
+    
+    @IBInspectable public var rightAligned: Bool = false {
+        didSet{
+            setupView()
+        }
+    }
+    
     // MARK: - Overrides
     // MARK:
     override init(frame: CGRect) {
@@ -392,6 +404,7 @@ public class LGButton: UIControl {
         setupSpacings()
         setupShadow()
         setupLoadingView()
+        setupAlignment()
     }
     
     fileprivate func setIconOrientation() {
@@ -522,6 +535,16 @@ public class LGButton: UIControl {
         }
         loadingSpinner.color = loadingSpinnerColor
         setupBorderAndCorners()
+    }
+    
+    fileprivate func setupAlignment() {
+        if leftAligned {
+            titleLbl.textAlignment = .left
+        } else if rightAligned {
+            titleLbl.textAlignment = .right
+        } else {
+            titleLbl.textAlignment = .center
+        }
     }
     
     fileprivate func setupIcon(icon:UILabel, fontName:String, iconName:String, fontSize:CGFloat, color:UIColor){
