@@ -148,6 +148,12 @@ public class LGButton: UIControl {
         }
     }
     
+    @IBInspectable public var titleNumOfLines: Int = 1 {
+        didSet{
+            setupView()
+        }
+    }
+    
     @IBInspectable public var verticalOrientation: Bool = false {
         didSet {
             setupView()
@@ -401,10 +407,10 @@ public class LGButton: UIControl {
         bgContentView.clipsToBounds = true
         layer.masksToBounds = false
         setIconOrientation()
+        setupTitle()
         setupBackgroundColor()
         setupGradientBackground()
         setupBorderAndCorners()
-        setupTitle()
         setupLeftIcon()
         setupRightIcon()
         setupLeftImage()
@@ -468,6 +474,7 @@ public class LGButton: UIControl {
     
     fileprivate func setupTitle() {
         titleLbl.isHidden = titleString.isEmpty
+        titleLbl.numberOfLines = titleNumOfLines
         titleLbl.text = titleString
         titleLbl.textColor = titleColor
         if titleFontName != nil {

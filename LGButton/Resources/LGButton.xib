@@ -100,7 +100,7 @@
                 <constraint firstItem="HQ2-LV-9mO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="MkW-ju-N7C"/>
                 <constraint firstAttribute="bottom" secondItem="HQ2-LV-9mO" secondAttribute="bottom" constant="8" id="Oni-YW-i3L"/>
                 <constraint firstItem="Olz-81-yKk" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="TJL-04-rYr"/>
-                <constraint firstAttribute="trailing" secondItem="HQ2-LV-9mO" secondAttribute="trailing" priority="750" constant="16" id="XWS-sG-2Z9"/>
+                <constraint firstAttribute="trailing" secondItem="HQ2-LV-9mO" secondAttribute="trailing" constant="16" id="XWS-sG-2Z9"/>
                 <constraint firstAttribute="bottom" secondItem="WKx-U5-Fez" secondAttribute="bottom" id="fdH-5H-9gU"/>
                 <constraint firstItem="Olz-81-yKk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kmM-QG-eqa"/>
                 <constraint firstItem="WKx-U5-Fez" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mhQ-mz-r48"/>
@@ -108,7 +108,7 @@
                 <constraint firstItem="Olz-81-yKk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="s8C-be-AUi"/>
                 <constraint firstItem="HQ2-LV-9mO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sYg-6j-37c"/>
                 <constraint firstItem="WKx-U5-Fez" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" priority="750" id="vVH-rZ-Bhm"/>
-                <constraint firstItem="HQ2-LV-9mO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="750" constant="16" id="xxj-9X-oxK"/>
+                <constraint firstItem="HQ2-LV-9mO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xxj-9X-oxK"/>
                 <constraint firstItem="WKx-U5-Fez" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="zf0-aD-IWu"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
