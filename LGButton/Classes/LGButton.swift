@@ -22,7 +22,7 @@ public class LGButton: UIControl {
     private var availableFontIcons: [String: IconFont] = ["fa": Fonts.FontAwesome,
                                                           "io": Fonts.Ionicon,
                                                           "oc": Fonts.Octicon,
-                                                          "ic": Fonts.Ionicon,
+                                                          "ic": Fonts.Iconic,
                                                           "ma": Fonts.MaterialIcon,
                                                           "ti": Fonts.Themify,
                                                           "mi": Fonts.MapIcon]
