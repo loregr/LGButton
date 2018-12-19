@@ -542,7 +542,7 @@ public class LGButton: UIControl {
                 for left in joind {
                     for right in joind {
                         if left == right { continue }
-                        let code = left.replacingOccurrences(of: left, with: right)
+                        let code = iconName.replacingOccurrences(of: left, with: right)
                         if let iconStr = String.getIcon(from: iconFont, code: code) {
                             icon.text = iconStr
                             return
