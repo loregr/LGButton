@@ -340,22 +340,25 @@ public class LGButton: UIControl {
         }
     }
     
+    // MARK: registFont
+    fileprivate func registIconFont() {
+        for (key, value) in self.availableFontIcons {
+            SwiftIconFont.registFont(from: value, name: key)
+        }
+    }
+    
     // MARK: - Overrides
     // MARK:
     override init(frame: CGRect) {
         super.init(frame: frame)
-        for (key, value) in self.availableFontIcons {
-            SwiftIconFont.registFont(from: value, name: key)
-        }
+        registIconFont()
         xibSetup()
         setupView()
     }
     
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        for (key, value) in self.availableFontIcons {
-            SwiftIconFont.registFont(from: value, name: key)
-        }
+        registIconFont()
         xibSetup()
         setupView()
     }
@@ -372,10 +375,6 @@ public class LGButton: UIControl {
     override public var intrinsicContentSize: CGSize {
         return CGSize(width: 10, height: 10)
     }
-    
-//    public func registIconFont(from iconFont: IconFont) {
-//        self.availableFontIcons[iconFont.fontName] = iconFont
-//    }
     
     // MARK: - Internal functions
     // MARK:
@@ -529,15 +528,31 @@ public class LGButton: UIControl {
     }
     
     fileprivate func setupIcon(icon:UILabel, fontName:String, iconName:String, fontSize:CGFloat, color:UIColor){
+        defer {
+            setupBorderAndCorners()
+        }
         if let iconFont = SwiftIconFont.fonts[fontName] {
             icon.isHidden = false
             icon.textColor = color
             icon.font = UIFont.icon(from: iconFont, ofSize: fontSize)
-            icon.text = String.getIcon(from: iconFont, code: iconName.replacingOccurrences(of: "-", with: "."))
+            if let iconStr = String.getIcon(from: iconFont, code: iconName) {
+                icon.text = iconStr
+            }else{
+                let joind = ["-", ".", "_"]
+                for left in joind {
+                    for right in joind {
+                        if left == right { continue }
+                        let code = left.replacingOccurrences(of: left, with: right)
+                        if let iconStr = String.getIcon(from: iconFont, code: code) {
+                            icon.text = iconStr
+                            return
+                        }
+                    }
+                }
+            }
         }else{
             icon.isHidden = true
         }
-        setupBorderAndCorners()
     }
     
     fileprivate func setupImage(imageView:UIImageView, image:UIImage?, color:UIColor?, widthConstraint:NSLayoutConstraint, heightConstraint:NSLayoutConstraint, widthValue:CGFloat, heightValue:CGFloat){
@@ -569,11 +584,7 @@ public class LGButton: UIControl {
     fileprivate func xibSetup() {
         rootView = loadViewFromNib()
         rootView.frame = bounds
-        #if swift(>=4.2)
         rootView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
-        #else
-        rootView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-        #endif
         addSubview(rootView)
         leadingLoadingConstraint.isActive = false
         trailingLoadingConstraint.isActive = false
