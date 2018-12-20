@@ -22,59 +22,78 @@ public class SwiftIconFont {
 
 public protocol IconFont {
     var fontName: String {get}
+    var fileName: String {get}
     var icons: [String: String] {get}
 }
 
 public enum Fonts: IconFont {
-    case FontAwesome// = "FontAwesome"
-    case Iconic// = "open-iconic"
-    case Ionicon// = "Ionicons"
-    case Octicon// = "octicons"
-    case Themify// = "themify"
-    case MapIcon// = "map-icons"
-    case MaterialIcon// = "MaterialIcons-Regular"
+    case awesome// = "FontAwesome"
+    case ic// = "open-iconic"
+    case ion// = "Ionicons"
+    case oct// = "octicons"
+    case themify// = "themify"
+    case map// = "map-icons"
+    case material// = "MaterialIcons-Regular"
     
     public var fontName: String {
         switch self {
-        case .FontAwesome:
-            return "FontAwesome"
-        case .Iconic:
-            return "Icons"
-        case .Ionicon:
-            return "Ionicons"
-        case .Octicon:
-            return "octicons"
-        case .Themify:
-            return "Themify"
-        case .MapIcon:
-            return "map-icons"
-        case .MaterialIcon:
-            return "Material Icons"
+        case .awesome:
+            return FontAwesome.__fontName__
+        case .ic:
+            return FontOpenic.__fontName__
+        case .ion:
+            return FontIon.__fontName__
+        case .oct:
+            return FontOct.__fontName__
+        case .themify:
+            return FontThemify.__fontName__
+        case .map:
+            return FontMap.__fontName__
+        case .material:
+            return FontMaterial.__fontName__
+        }
+    }
+    
+    public var fileName: String {
+        switch self {
+        case .awesome:
+            return FontAwesome.__fileName__
+        case .ic:
+            return FontOpenic.__fileName__
+        case .ion:
+            return FontIon.__fileName__
+        case .oct:
+            return FontOct.__fileName__
+        case .themify:
+            return FontThemify.__fileName__
+        case .map:
+            return FontMap.__fileName__
+        case .material:
+            return FontMaterial.__fileName__
         }
     }
     
     public var icons: [String : String] {
         switch self {
-        case .FontAwesome:
-            return fontAwesomeIconArr//"FontAwesome"
-        case .Iconic:
-            return iconicIconArr//"Icons"
-        case .Ionicon:
-            return ioniconArr//"Ionicons"
-        case .Octicon:
-            return octiconArr//"octicons"
-        case .Themify:
-            return temifyIconArr//"Themify"
-        case .MapIcon:
-            return mapIconArr//"map-icons"
-        case .MaterialIcon:
-            return materialIconArr//"Material Icons"
+        case .awesome:
+            return FontAwesome.icons//"FontAwesome"
+        case .ic:
+            return FontOpenic.icons//"Icons"
+        case .ion:
+            return FontIon.icons//"Ionicons"
+        case .oct:
+            return FontOct.icons//"octicons"
+        case .themify:
+            return FontThemify.icons//"Themify"
+        case .map:
+            return FontMap.icons//"map-icons"
+        case .material:
+            return FontMaterial.icons//"Material Icons"
         }
     }
 }
 public extension UIFont{
     static func icon(from font: IconFont, ofSize size: CGFloat) -> UIFont {
-        let fontName = font.fontName
         if (UIFont.fontNames(forFamilyName: font.fontName).count == 0)
         {
             /*
@@ -82,7 +101,7 @@ public extension UIFont{
                 FontLoader.loadFont(fontName)
             }
             */
-            FontLoader.loadFont(fontName)
+            FontLoader.loadFont(font.fileName)
         }
         return UIFont(name: font.fontName, size: size)!
     }
@@ -142,7 +161,7 @@ func getAttributedString(_ text: NSString, ofSize size: CGFloat) -> NSMutableAtt
             fontCode = (fontCode as NSString).replacingOccurrences(of: "_", with: "-")
         }
         
-        var fontType: IconFont = Fonts.FontAwesome
+        var fontType: IconFont = Fonts.awesome
         var fontArr: [String: String] = ["": ""]
 
         if let iconFont = SwiftIconFont.fonts[fontPrefix] {
@@ -184,7 +203,7 @@ func GetIconIndexWithSelectedIcon(_ icon: String) -> String {
 
 func GetFontTypeWithSelectedIcon(_ icon: String) -> IconFont {
     let text = icon as NSString
-    var fontType: IconFont = Fonts.FontAwesome
+    var fontType: IconFont = Fonts.awesome
     
     for substring in ((text as String).split{$0 == " "}.map(String.init)) {
         var splitArr = ["", ""]

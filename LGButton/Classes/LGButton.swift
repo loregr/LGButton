@@ -19,13 +19,13 @@ public class LGButton: UIControl {
 
     let touchDisableRadius : CGFloat = 100.0
 
-    private var availableFontIcons: [String: IconFont] = ["fa": Fonts.FontAwesome,
-                                                          "io": Fonts.Ionicon,
-                                                          "oc": Fonts.Octicon,
-                                                          "ic": Fonts.Iconic,
-                                                          "ma": Fonts.MaterialIcon,
-                                                          "ti": Fonts.Themify,
-                                                          "mi": Fonts.MapIcon]
+    private var availableFontIcons: [String: IconFont] = ["fa": Fonts.awesome,
+                                                          "io": Fonts.ion,
+                                                          "oc": Fonts.oct,
+                                                          "ic": Fonts.ic,
+                                                          "ma": Fonts.material,
+                                                          "ti": Fonts.themify,
+                                                          "mi": Fonts.map]
     
     var gradient : CAGradientLayer?
     
