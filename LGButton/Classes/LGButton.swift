@@ -16,7 +16,7 @@ public class LGButton: UIControl {
         case touched = 0.7
         case untouched = 1.0
     }
-
+    
     let touchDisableRadius : CGFloat = 100.0
 
     private var availableFontIcons: [String: IconFont] = ["fa": Fonts.awesome,
@@ -26,7 +26,7 @@ public class LGButton: UIControl {
                                                           "ma": Fonts.material,
                                                           "ti": Fonts.themify,
                                                           "mi": Fonts.map]
-    
+
     var gradient : CAGradientLayer?
     
     
@@ -59,7 +59,7 @@ public class LGButton: UIControl {
     
     public var isLoading = false {
         didSet {
-           showLoadingView()
+            showLoadingView()
         }
     }
     
@@ -149,6 +149,12 @@ public class LGButton: UIControl {
     }
     
     @IBInspectable public var titleFontSize: CGFloat = 14.0 {
+        didSet{
+            setupView()
+        }
+    }
+    
+    @IBInspectable public var titleNumOfLines: Int = 1 {
         didSet{
             setupView()
         }
@@ -340,11 +346,24 @@ public class LGButton: UIControl {
         }
     }
     
-    // MARK: registFont
-    fileprivate func registIconFont() {
-        for (key, value) in self.availableFontIcons {
-            SwiftIconFont.registFont(from: value, name: key)
+    @IBInspectable public var leftAligned: Bool = false {
+        didSet{
+            setupView()
         }
+    }
+    
+    @IBInspectable public var rightAligned: Bool = false {
+        didSet{
+            setupView()
+        }
+    }
+    
+    // MARK: - Standard Properties
+    // MARK:
+    public var attributedString: NSAttributedString? {
+        didSet {
+            titleLbl.attributedText = attributedString
+         }
     }
     
     // MARK: - Overrides
@@ -372,6 +391,18 @@ public class LGButton: UIControl {
         setupBorderAndCorners()
     }
     
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        xibSetup()
+        setupView()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        xibSetup()
+        setupView()
+    }
+    
     override public var intrinsicContentSize: CGSize {
         return CGSize(width: 10, height: 10)
     }
@@ -384,10 +415,10 @@ public class LGButton: UIControl {
         bgContentView.clipsToBounds = true
         layer.masksToBounds = false
         setIconOrientation()
+        setupTitle()
         setupBackgroundColor()
         setupGradientBackground()
         setupBorderAndCorners()
-        setupTitle()
         setupLeftIcon()
         setupRightIcon()
         setupLeftImage()
@@ -395,6 +426,13 @@ public class LGButton: UIControl {
         setupSpacings()
         setupShadow()
         setupLoadingView()
+        setupAlignment()
+    }
+    
+    fileprivate func registIconFont() {
+        for (key, value) in self.availableFontIcons {
+            SwiftIconFont.registFont(from: value, name: key)
+        }
     }
     
     fileprivate func setIconOrientation() {
@@ -431,7 +469,7 @@ public class LGButton: UIControl {
             let d = pow(sinf((2*Float(Double.pi)*((xAngle+0.5)/2))),2)
             gradient!.startPoint = CGPoint(x: CGFloat(a), y: CGFloat(b))
             gradient!.endPoint = CGPoint(x: CGFloat(c), y: CGFloat(d))
-        
+            
             bgContentView.layer.addSublayer(gradient!)
         }
     }
@@ -450,6 +488,7 @@ public class LGButton: UIControl {
     
     fileprivate func setupTitle() {
         titleLbl.isHidden = titleString.isEmpty
+        titleLbl.numberOfLines = titleNumOfLines
         titleLbl.text = titleString
         titleLbl.textColor = titleColor
         if titleFontName != nil {
@@ -527,6 +566,16 @@ public class LGButton: UIControl {
         setupBorderAndCorners()
     }
     
+    fileprivate func setupAlignment() {
+        if leftAligned {
+            titleLbl.textAlignment = .left
+        } else if rightAligned {
+            titleLbl.textAlignment = .right
+        } else {
+            titleLbl.textAlignment = .center
+        }
+    }
+    
     fileprivate func setupIcon(icon:UILabel, fontName:String, iconName:String, fontSize:CGFloat, color:UIColor){
         defer {
             setupBorderAndCorners()
@@ -584,7 +633,7 @@ public class LGButton: UIControl {
     fileprivate func xibSetup() {
         rootView = loadViewFromNib()
         rootView.frame = bounds
-        rootView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
+        rootView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(rootView)
         leadingLoadingConstraint.isActive = false
         trailingLoadingConstraint.isActive = false
@@ -616,7 +665,7 @@ public class LGButton: UIControl {
             touchAlpha = (pressed) ? .touched : .untouched
         }
     }
-
+    
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         pressed = true
     }
@@ -652,6 +701,14 @@ public class LGButton: UIControl {
             UIView.animate(withDuration: 0.3) {
                 self.alpha = self.touchAlpha.rawValue
             }
+        }
+    }
+    
+    @IBAction func tapAction(_ sender: Any) {
+        let shouldSendActions = pressed
+        pressed = false
+        if shouldSendActions{
+            sendActions(for: .touchUpInside)
         }
     }
 }
