@@ -20,7 +20,5 @@ class ViewController: UIViewController {
             // DO SOMETHING
         }
     }
-
-
 }
 

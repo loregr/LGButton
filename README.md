@@ -51,7 +51,7 @@ Icons are managed by [SwiftIconFont](https://github.com/0x73/SwiftIconFont) inte
 | Map Icons   | mi    | [List](http://map-icons.com)       |
 
 The main properties that you need to set in order to use font icons are:
-- **Icon Font Name**: you can pick one value from the table above, different values will be ignored.
+- **Icon Font Name**: you can pick one value from the table above, different values will be ignored <i>(please consider that not all the icons may be available since this library may not be updated right after a font library update).</i>
 
 - **Icon String**: the icon name taken from the cheatsheet without the collection prefix.
 
@@ -121,6 +121,8 @@ Customise your button by setting the properties from the Interface Builder.
 | Loading String      | The loading message text   | _EMPTY&#95;STRING_ |
 | Loading Font Name      | The loading message font name   | _EMPTY&#95;STRING_ |
 | Loading Font Size      | The loading message font size    | 14.0 |
+| Left Aligned      | `true` if the button items should be aligned to the left. It requires the button to have a fixed width    | false |
+| Right Aligned      | `true` if the button items should be aligned to the right. It requires the button to have a fixed width    | false |
 
 You can download the demo project if you want to check more.
 
