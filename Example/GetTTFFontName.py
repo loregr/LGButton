@@ -27,7 +27,7 @@ def shortName( font ):
     return name, family
 
 if __name__ == '__main__':
-    path = "./"
+    path = "../LGButton/Resources/"
     fonts = os.listdir(path)
     for font in fonts:
         if font.endswith(".ttf") == False:
