@@ -1,8 +1,7 @@
 
 ![logo](media/header_btn.png)
 
-[![build](https://travis-ci.org/loregr/LGButton.svg?branch=master)](https://travis-ci.org/loregr/LGButton) ![platform](https://img.shields.io/badge/platform-ios-blue.svg) [![license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](./LICENSE.md) [![Version](https://img.shields.io/cocoapods/v/LGButton.svg?style=flat)](http://cocoadocs.org/docsets/LGButton) [![gitcheese.com](https://s3.amazonaws.com/gitcheese-ui-master/images/badge.svg)](https://www.gitcheese.com/donate/users/7204248/repos/94624954)
-
+[![build](https://travis-ci.org/loregr/LGButton.svg?branch=master)](https://travis-ci.org/loregr/LGButton) ![platform](https://img.shields.io/badge/platform-ios-blue.svg) [![license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](./LICENSE.md) [![Version](https://img.shields.io/cocoapods/v/LGButton.svg?style=flat)](http://cocoadocs.org/docsets/LGButton)
 
 A fully customisable subclass of the native `UIControl` which allows you to create beautiful buttons without writing any line of code.
 
