@@ -631,6 +631,7 @@ public class LGButton: UIControl {
     // MARK: - Xib file
     // MARK:
     fileprivate func xibSetup() {
+		guard rootView == nil else { return }
         rootView = loadViewFromNib()
         rootView.frame = bounds
         rootView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
