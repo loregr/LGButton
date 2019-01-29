@@ -10,7 +10,7 @@ import QuartzCore
 
 
 @IBDesignable
-public class LGButton: UIControl {
+open class LGButton: UIControl {
     
     enum TouchAlphaValues : CGFloat {
         case touched = 0.7
@@ -382,7 +382,7 @@ public class LGButton: UIControl {
         setupView()
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         if gradient != nil {
             gradient?.removeFromSuperlayer()
             gradient = nil
@@ -391,19 +391,19 @@ public class LGButton: UIControl {
         setupBorderAndCorners()
     }
     
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()
         setupView()
     }
     
-    override public func prepareForInterfaceBuilder() {
+    override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         xibSetup()
         setupView()
     }
     
-    override public var intrinsicContentSize: CGSize {
+    override open var intrinsicContentSize: CGSize {
         return CGSize(width: 10, height: 10)
     }
     
@@ -667,11 +667,11 @@ public class LGButton: UIControl {
         }
     }
     
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         pressed = true
     }
     
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
         let shouldSendActions = pressed
         pressed = false
         if shouldSendActions{
@@ -679,7 +679,7 @@ public class LGButton: UIControl {
         }
     }
     
-    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
         if let touchLoc = touches.first?.location(in: self){
             if (touchLoc.x < -touchDisableRadius ||
                 touchLoc.y < -touchDisableRadius ||
@@ -693,7 +693,7 @@ public class LGButton: UIControl {
         }
     }
     
-    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         pressed = false
     }
     
