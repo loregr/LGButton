@@ -16,7 +16,6 @@
 		5A25E453199C12C4FA9301DF2D389ED7 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DED320CE468793386B41961CD681644 /* FontAwesome.swift */; };
 		7C09D74788B3D10DCF42597D80E14252 /* open-iconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CFE0981E747F5451D44457B69A95461 /* open-iconic.ttf */; };
 		9017EB99C6AF6C8CECD651DF68A1576A /* LGButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBC93E13272EFE886024A07D499B0036 /* LGButton.xib */; };
-		961B556D81601BD99546C99765C47FD3 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70E9CD9D1FAD5A8D6E05361A54D47173 /* FontAwesome.ttf */; };
 		9BFA2AC933652C807A2F3557488F0CBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		A326FA53681BD593E5B23B000EDF91EA /* SwiftIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAAFAEA69254A07EA85215C89E0EC9F /* SwiftIconLabel.swift */; };
 		A3F98EB4A538FB4BEAC032AD07A6E758 /* SwiftIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71642743B0A60B7FC94D05EA3D5F7CF4 /* SwiftIconFont.swift */; };
@@ -28,6 +27,7 @@
 		BB35ED6B21CB41F400A63EEC /* FontIon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35ED6521CB41F400A63EEC /* FontIon.swift */; };
 		BB35ED6D21CB42AF00A63EEC /* FontOpenic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35ED6C21CB42AF00A63EEC /* FontOpenic.swift */; };
 		C587927E25053282F18B343438BEBCCC /* LGButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5A28AE1AB321C8DB11F31233C997F /* LGButton-dummy.m */; };
+		C94B98562201D75000F284BD /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C94B98552201D75000F284BD /* FontAwesome.ttf */; };
 		E5F63C7D3706848E119DBDDBB68F2558 /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D4A25C3BB0BA04D57081744878EC8 /* FontLoader.swift */; };
 		E81B107B06C1AC312AA7636B1E1301DE /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC3F3C45E4EB3D7ABE0CB25A622B08A1 /* octicons.ttf */; };
 		F4AE204EAEB3B526F04157A32888A1B4 /* LGButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F141D433D5061DDBE056864765F8074A /* LGButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,7 +58,6 @@
 		59B5D472E9025E1F0B6CA7D43899F55E /* Pods-LGButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LGButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		66A97A9FC2E2FC13A62332924AC1B9A3 /* LGButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LGButton-prefix.pch"; sourceTree = "<group>"; };
-		70E9CD9D1FAD5A8D6E05361A54D47173 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.ttf; path = LGButton/Resources/FontAwesome.ttf; sourceTree = "<group>"; };
 		71642743B0A60B7FC94D05EA3D5F7CF4 /* SwiftIconFont.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftIconFont.swift; sourceTree = "<group>"; };
 		7744F556506528A690A2C7F2E97AC852 /* Pods-LGButton_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LGButton_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		8DA92659A97D35DBAD78B49C364D8841 /* LGButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LGButton.modulemap; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		BB35ED6C21CB42AF00A63EEC /* FontOpenic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontOpenic.swift; sourceTree = "<group>"; };
 		C06B66404DEACFB865299CF0031CA27D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C08802B113FD67EC18F134F83FD56CF7 /* map-icons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "map-icons.ttf"; path = "LGButton/Resources/map-icons.ttf"; sourceTree = "<group>"; };
+		C94B98552201D75000F284BD /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		CBC93E13272EFE886024A07D499B0036 /* LGButton.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LGButton.xib; path = LGButton/Resources/LGButton.xib; sourceTree = "<group>"; };
 		CCE5742C4865D28386BBC6726126293F /* Pods-LGButton_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LGButton_Example-dummy.m"; sourceTree = "<group>"; };
 		D16729AF393252BDF8C879F04B8A8B98 /* Pods-LGButton_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LGButton_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		C9EA44F079D1B30C75603242A229A8A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				70E9CD9D1FAD5A8D6E05361A54D47173 /* FontAwesome.ttf */,
+				C94B98552201D75000F284BD /* FontAwesome.ttf */,
 				4C3E14CA0E5062DF7326294A094552D6 /* Ionicons.ttf */,
 				CBC93E13272EFE886024A07D499B0036 /* LGButton.xib */,
 				C08802B113FD67EC18F134F83FD56CF7 /* map-icons.ttf */,
@@ -325,11 +325,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961B556D81601BD99546C99765C47FD3 /* FontAwesome.ttf in Resources */,
 				1EA43895FFFA8B57AE7DA63863BC50B0 /* Ionicons.ttf in Resources */,
 				9017EB99C6AF6C8CECD651DF68A1576A /* LGButton.xib in Resources */,
 				02E376A3BB1FBA1BCD8E98C70C180AED /* map-icons.ttf in Resources */,
 				5159D59724BDD166CCB121F1689345C8 /* MaterialIcons-Regular.ttf in Resources */,
+				C94B98562201D75000F284BD /* FontAwesome.ttf in Resources */,
 				E81B107B06C1AC312AA7636B1E1301DE /* octicons.ttf in Resources */,
 				7C09D74788B3D10DCF42597D80E14252 /* open-iconic.ttf in Resources */,
 				AF198558F21676A1C2320D98AEA9FC52 /* themify.ttf in Resources */,
