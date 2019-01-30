@@ -41,7 +41,7 @@ Icons are managed by [SwiftIconFont](https://github.com/0x73/SwiftIconFont) inte
 
 | Collection         | Font name | Cheat Sheet                               |
 |--------------|--------|-------------------------------------------|
-| Font Awesome | fa    | [List](http://fontawesome.io/cheatsheet/) |
+| Font Awesome | fa    | [List](https://fontawesome.com/v4.7.0/icons/) |
 | Ion Icons    | io    | [List](http://ionicons.com)               |
 | Octicons     | oc    | [List](https://octicons.github.com)       |
 | Open Iconic  | ic    | [List](https://useiconic.com/open/)       |
