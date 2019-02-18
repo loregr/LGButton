@@ -363,7 +363,7 @@ open class LGButton: UIControl {
     public var attributedString: NSAttributedString? {
         didSet {
             titleLbl.attributedText = attributedString
-         }
+        }
     }
     
     // MARK: - Overrides
@@ -631,7 +631,7 @@ open class LGButton: UIControl {
     // MARK: - Xib file
     // MARK:
     fileprivate func xibSetup() {
-		guard rootView == nil else { return }
+        guard rootView == nil else { return }
         rootView = loadViewFromNib()
         rootView.frame = bounds
         rootView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -662,7 +662,6 @@ open class LGButton: UIControl {
             if !showTouchFeedback {
                 return
             }
-            
             touchAlpha = (pressed) ? .touched : .untouched
         }
     }
@@ -672,11 +671,10 @@ open class LGButton: UIControl {
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
-        let shouldSendActions = pressed
-        pressed = false
-        if shouldSendActions{
+        if pressed {
             sendActions(for: .touchUpInside)
         }
+        pressed = false
     }
     
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -706,10 +704,12 @@ open class LGButton: UIControl {
     }
     
     @IBAction func tapAction(_ sender: Any) {
-        let shouldSendActions = pressed
-        pressed = false
-        if shouldSendActions{
-            sendActions(for: .touchUpInside)
+        sendActions(for: .touchUpInside)
+        if !isLoading {
+            pressed = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.pressed = false
+            }
         }
     }
 }
