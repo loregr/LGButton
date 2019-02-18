@@ -671,8 +671,10 @@ open class LGButton: UIControl {
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
+        if pressed {
+            sendActions(for: .touchUpInside)
+        }
         pressed = false
-        sendActions(for: .touchUpInside)
     }
     
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
