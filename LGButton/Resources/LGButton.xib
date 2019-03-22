@@ -4,13 +4,16 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LGButton" customModule="LGButton" customModuleProvider="target">
             <connections>
+                <outlet property="bgContentHeightConstraint" destination="9Xz-q8-BM7" id="wve-iH-Jm8"/>
                 <outlet property="bgContentView" destination="Olz-81-yKk" id="bSa-ag-wmN"/>
+                <outlet property="bgContentWidthConstraint" destination="TJL-04-rYr" id="kVL-DP-eRv"/>
                 <outlet property="bottomMainConstraint" destination="Oni-YW-i3L" id="hxO-uS-Ijz"/>
                 <outlet property="leadingLoadingConstraint" destination="zf0-aD-IWu" id="3PH-T6-tpw"/>
                 <outlet property="leadingMainConstraint" destination="xxj-9X-oxK" id="BPi-O2-q2y"/>
