@@ -647,7 +647,12 @@ open class LGButton: UIControl {
     
     fileprivate func loadViewFromNib() -> UIView {
         
-        let bundle = Bundle(for: type(of: self))
+        /**
+         更改LGButton.podspec配置以后会使用资源束打包其它资源
+         s.resource_bundle = { 'LGButton' => 'LGButton/Resources/\*' }
+         */
+        let url = Bundle(for: type(of: self)).url(forResource: "LGButton", withExtension: "bundle")!
+        let bundle = Bundle(url: url)!
         let nib = UINib(nibName: "LGButton", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
