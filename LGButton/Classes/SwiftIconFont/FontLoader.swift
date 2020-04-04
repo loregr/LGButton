@@ -13,7 +13,8 @@ import CoreText
 class FontLoader: NSObject {
     class func loadFont(_ fontName: String) {
         
-        let bundle = Bundle(for: FontLoader.self)
+        let url = Bundle(for: FontLoader.self).url(forResource: "LGButton", withExtension: "bundle")!
+        let bundle = Bundle(url: url)!
         var fontURL = URL(string: "")
         
         if let url = getFontUrl(fontName, bundle: bundle) {
