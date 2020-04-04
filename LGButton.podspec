@@ -10,6 +10,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
 
 s.source_files = 'LGButton/Classes/**/*.{swift}'
-  s.resources = "LGButton/Resources/*"
-
+  s.resource_bundle = { 'LGButton' => 'LGButton/Resources/*' }
 end
