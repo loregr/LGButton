@@ -109,7 +109,7 @@ public extension UIFont{
 
 public extension UIImage
 {
-    public static func icon(from font: IconFont, iconColor: UIColor, code: String, imageSize: CGSize, ofSize size: CGFloat) -> UIImage
+    static func icon(from font: IconFont, iconColor: UIColor, code: String, imageSize: CGSize, ofSize size: CGFloat) -> UIImage
     {
         let drawText = String.getIcon(from: font, code: code)
         
@@ -125,7 +125,7 @@ public extension UIImage
 }
 
 public extension String {
-    public static func getIcon(from font: IconFont, code: String) -> String? {
+    static func getIcon(from font: IconFont, code: String) -> String? {
         if let icon = font.icons[code] {
             return icon
         }
